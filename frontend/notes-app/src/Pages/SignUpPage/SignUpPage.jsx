@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import PasswordInput from '../../Inputs/PasswordInput'
 import { Link } from 'react-router-dom'
+import { validateEmail } from '../../utils/Helper';
 
 const SignUpPage = () => {
   const [name, setName] = React.useState("")
@@ -12,6 +13,22 @@ const SignUpPage = () => {
   const handleSingUp = async (e) => {
     e.preventDefault();
     // Add your signup logic here
+
+    if(!name){
+      setError("PLease enter your name");
+      return
+    }
+
+    if(!validateEmail(email)){
+      setError("Please Enter a valid email address");
+      return;
+    } 
+    if(!password){
+      setError("Please Enter a valid password");
+      return;
+    }
+
+    setError("");
   };
 
   return (
