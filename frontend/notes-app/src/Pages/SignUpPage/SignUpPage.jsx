@@ -29,6 +29,7 @@ const SignUpPage = () => {
     }
 
     setError("");
+    //SignUp API call
   };
 
   return (
